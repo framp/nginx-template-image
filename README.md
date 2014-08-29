@@ -3,6 +3,9 @@
 This container allows you to use the environment variables set by a
 Docker link inside of your nginx configuration.
 
+This fork inherits from `nginx` container
+
+
 ## Usage
 
 Mount your configuration to `/etc/nginx/sites-templates`, preferably
@@ -55,10 +58,3 @@ To work around this, configuration files mounted at
 `/etc/nginx/sites-enabled`. Any file that ends with `.tmpl` will have
 variable references like `${FOO}` replaced with the corresponding
 environment variable and have the `.tmpl` suffix removed.
-
-### Only include .conf files
-
-The default nginx configuration includes all files in `sites-enabled`,
-which makes it difficult to have supplemental files like SSL keys in
-the same directory. This container will only load files that end in
-`.conf`.
