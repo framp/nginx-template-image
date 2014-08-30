@@ -1,10 +1,9 @@
-FROM nginx
+FROM dockerfile/nginx
 
 ADD bin/ /usr/sbin/
+RUN rm /etc/nginx/sites-enabled/default
 
-VOLUME ["/var/log/nginx", "/etc/nginx/sites-templates"]
-EXPOSE 80 443
-WORKDIR /etc/nginx
+VOLUME ["/etc/nginx/sites-templates"]
 
 ENTRYPOINT ["entrypoint.sh"]
 CMD ["nginx"]
